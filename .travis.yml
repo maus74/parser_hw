@@ -1,26 +1,40 @@
-os: linux
-sudo: required
-language:
-- minimal
+os: linux             # ОС
+sudo: required        # Необходимость прав sudo
+language: "minimal"   # Языковой шаблон
 services:
-- docker
+  - docker            # Необходимые сервисы
+env:
+  # Based on Ubuntu 18.04
+  # GCC 7.3
+  # clang 7
+  # CMake 3.10
+  # gcovr
+  # jscpd
+  # cpplint
+  - DOCKER_IMAGE="rusdevops/bootstrap:cpp"          # Используется по умолчанию
 
-jobs:
-  include:
-  - name: "checks"
-    script:
-    - docker run -v `pwd`:`pwd` -w `pwd` --cap-add=SYS_PTRACE -t rusdevops/bootstrap-cpp scripts/checks.sh
-  - name: "tests"
-    script:
-    - docker run -v `pwd`:`pwd` -w `pwd` -t rusdevops/bootstrap-cpp scripts/tests.sh
-  - name: "quality"
-    script:
-    - ./scripts/genenv.sh
-    - docker run --env-file .env -v `pwd`:`pwd` -w `pwd` -t rusdevops/bootstrap-cpp scripts/coverage.sh
-    # The bot has gone...
-    # - docker run --env-file .env -v `pwd`:`pwd` -w `pwd` -t rusdevops/bootstrap-cpp scripts/duplication.sh
+  # Based on Alpine 3.10
+  # GCC 8.3
+  # CMake 3.14
+  # gcovr
+  # jscpd
+  # valgrind
+  # Hunter GTest v1.8.0 (cached)
+  # Hunter Boost cached components: exception
+  #                                 filesystem
+  #                                 log
+  #                                 regex
+  #                                 system
+# - DOCKER_IMAGE="toliak/bootstrap-cpp"             # Для использования снять комментарий
 
-notifications:
-    email: false
-
-
+before_script:
+  - docker pull $DOCKER_IMAGE                       # Предварительное скачивание образа
+  - jobs:
+      include:
+        - name: "tests"       # Название
+          script:             # Команды для исполнения
+            - docker run -t -v $(pwd):/var/builder/ -w /var/builder --entrypoint ./scripts/tests.sh $DOCKER_IMAGE
+        - name: "quality"
+          script:
+            - docker run -t -v $(pwd):/var/builder/ -w /var/builder --entrypoint ./scripts/duplication.sh $DOCKER_IMAGE
+        # И так далее
