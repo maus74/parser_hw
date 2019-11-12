@@ -1,0 +1,5 @@
+/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug/CMakeFiles/test.dir
+/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug/CMakeFiles/template.dir
+/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug/CMakeFiles/tests.dir
