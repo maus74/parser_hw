@@ -1,7 +1,8 @@
 // Copyright 2018 Your Name <your_email>
 
 #include <header.hpp>
-
+#include<iostream>
+using namespace std;
 int add(int a, int b)
 {
     int c;
