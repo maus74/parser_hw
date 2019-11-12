@@ -29,12 +29,13 @@ env:
 
 before_script:
   - docker pull $DOCKER_IMAGE                       # Предварительное скачивание образа
-  - jobs:
-      include:
-        - name: "tests"       # Название
-          script:             # Команды для исполнения
-            - docker run -t -v $(pwd):/var/builder/ -w /var/builder --entrypoint ./scripts/tests.sh $DOCKER_IMAGE
-        - name: "quality"
-          script:
-            - docker run -t -v $(pwd):/var/builder/ -w /var/builder --entrypoint ./scripts/duplication.sh $DOCKER_IMAGE
-        # И так далее
+
+jobs:
+  include:
+    - name: "tests"       # Название
+      script:             # Команды для исполнения
+        - docker run -t -v $(pwd):/var/builder/ -w /var/builder --entrypoint ./scripts/tests.sh $DOCKER_IMAGE
+    - name: "quality"
+      script:
+        - docker run -t -v $(pwd):/var/builder/ -w /var/builder --entrypoint ./scripts/duplication.sh $DOCKER_IMAGE
+    # И так далее
