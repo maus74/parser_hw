@@ -16,6 +16,7 @@ class Json
 {
 	any data;
 
+public:
 	Json(const map<std::string, any>& map);
 
 	Json(const vector<std::any>& vector);

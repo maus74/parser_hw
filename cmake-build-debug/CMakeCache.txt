@@ -266,6 +266,12 @@ ProcessorCount_cmd_getconf:FILEPATH=/usr/bin/getconf
 ProcessorCount_cmd_sysctl:FILEPATH=/sbin/sysctl
 
 //Value Computed by CMake
+lab-01-parser_BINARY_DIR:STATIC=/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug
+
+//Value Computed by CMake
+lab-01-parser_SOURCE_DIR:STATIC=/home/maus/homeworks/iu10/lab-01-parser
+
+//Value Computed by CMake
 template_BINARY_DIR:STATIC=/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug
 
 //Value Computed by CMake

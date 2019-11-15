@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblab-01-parserd.a  CMakeFiles/lab-01-parser.dir/sources/source.cpp.o
+/usr/bin/ranlib liblab-01-parserd.a
