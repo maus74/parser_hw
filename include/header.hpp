@@ -15,14 +15,7 @@ using namespace std;
 class Json
 {
 	any data;
-public:
-	enum State
-	{
-		find_key_or_end,
-		find_colon,
-		find_value,
-		find_comma_or_end
-	};
+
 	Json(const map<std::string, any>& map);
 
 	Json(const vector<std::any>& vector);

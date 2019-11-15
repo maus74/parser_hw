@@ -120,49 +120,49 @@ vector<any> Json::parse_arr(const string& str, size_t& pos)
 {
 	vector<any> result;
 	++pos;
-	State st = find_value;
+	int st = 3;
 
-	for (size_t i = pos; i < str.size(); ++i)
+    for (size_t i = pos; i < str.size(); ++i)
 	{
 		if (str[i] == '"')
 		{
-			if (st == find_value)
+			if (st == 3)
 			{
-				result.emplace_back(parse_str(str, i));
-				st = find_comma_or_end;
+				result.push_back(parse_str(str, i));
+				st = 4;
 			}
 			else {
 				throw std::invalid_argument("Error");
 			}
 		}
 		else if (str[i] == '{') {
-			if (st == find_value)
+			if (st == 3)
 			{
 				result.emplace_back(Json(parse_object(str, i)));
-				st = find_comma_or_end;
+				st = 4;
 			}
 			else {
 				throw std::invalid_argument("Error");
 			}
 		}
 		else if (str[i] == '[') {
-			if (st == find_value)
+			if (st == 3)
 			{
 				result.emplace_back(Json(parse_arr(str, i)));
-				st = find_comma_or_end;
+				st = 4;
 			}
 			else {
 				throw std::invalid_argument("Error");
 			}
 		}
 		else if (str[i] == ']') {
-			if (st == find_comma_or_end)
+			if (st == 4)
 			{
 				pos = i;
 				return result;
 			}
 			else {
-				if (st == find_value) {
+				if (st == 3) {
 					if (isdigit(str[i])) {
 						result.push_back(parse_num(str, i));
 					}
@@ -177,10 +177,10 @@ vector<any> Json::parse_arr(const string& str, size_t& pos)
 			}
 		}
 		else if (str[i] == ',') {
-			st = find_value;
+			st = 3;
 		}
 		else {
-			if (st == find_value)
+			if (st == 3)
 			{
 
 				if (isdigit(str[i]))
@@ -190,7 +190,7 @@ vector<any> Json::parse_arr(const string& str, size_t& pos)
 				else if (isalpha(str[i])) {
 					result.emplace_back(parse_bool(str, i));
 				}
-				st = find_comma_or_end;
+				st = 4;
 			}
 			else if (!isspace(str[i])) {
 				throw std::logic_error("Error");
@@ -204,61 +204,61 @@ vector<any> Json::parse_arr(const string& str, size_t& pos)
 map<string, any> Json::parse_object(const string& str, size_t& pos)
 {
 	map<string, any> result;
-	State st = find_key_or_end;
+	State st = 1;
 	string key;
 
 	for (size_t i = pos; i < str.size(); ++i)
 	{
 		if (str[i] == '"')
 		{
-			if (st == find_key_or_end)
+			if (st == 1)
 			{
 				key = parse_str(str, i);
-				st = find_colon;
+				st = 2;
 			}
-			else if (st == find_value) {
+			else if (st == 3) {
 				result[key] = parse_str(str, i);
-				st = find_key_or_end;
+				st = 1;
 			}
 			else {
 				throw std::logic_error("Error");
 			}
 		}
 		else if (str[i] == ':') {
-			if (st == find_colon) {
-				st = find_value;
+			if (st == 2) {
+				st = 3;
 			}
 		}
 		else if (str[i] == '{') {
-			if (st == find_value)
+			if (st == 3)
 			{
 				result[key] = Json(parse_object(str, i));
-				st = find_key_or_end;
+				st = 1;
 			}
 		}
 		else if (str[i] == '}') {
-			if (st == find_key_or_end || st == find_comma_or_end)
+			if (st == 1 || st == 4)
 			{
 				pos = i;
 				return result;
 			}
 		}
 		else if (str[i] == '[') {
-			if (st == find_value)
+			if (st == 3)
 			{
 				result[key] = Json(parse_arr(str, i));
-				st = find_key_or_end;
+				st = 1;
 			}
 		}
 		else if (str[i] == ']') {
-			if (st == find_key_or_end || st == find_comma_or_end)
+			if (st == 1 || st == 4)
 			{
 				pos = i;
 				return result;
 			}
 		}
 		else if (!isspace(str[i])) {
-			if (st == find_value)
+			if (st == 3)
 			{
 				if (isdigit(str[i]))
 				{
@@ -267,7 +267,7 @@ map<string, any> Json::parse_object(const string& str, size_t& pos)
 				else {
 					result[key] = parse_bool(str, i);
 				}
-				st = find_key_or_end;
+				st = 1;
 			}
 		}
 	}
