@@ -28,10 +28,6 @@ bool Json::is_object() const
 	}
 }
 
-
-
-
-
 Json Json::parse(const string& str)
 {
 	return Json(str);
@@ -168,11 +164,11 @@ vector<any> Json::parse_arr(const string& str, size_t& pos)
 			else {
 				if (st == find_value) {
 					if (isdigit(str[i])) {
-						result.emplace_back(parse_num(str, i));
+						result.push_back(parse_num(str, i));
 					}
 					else {
 						if (isalpha(str[i])) {
-							result.emplace_back(parse_bool(str, i));
+							result.push_back(parse_bool(str, i));
 						}
 					}
 
@@ -232,9 +228,6 @@ map<string, any> Json::parse_object(const string& str, size_t& pos)
 			if (st == find_colon) {
 				st = find_value;
 			}
-			else {
-				throw std::logic_error("Error");
-			}
 		}
 		else if (str[i] == '{') {
 			if (st == find_value)
@@ -249,9 +242,6 @@ map<string, any> Json::parse_object(const string& str, size_t& pos)
 				pos = i;
 				return result;
 			}
-			else {
-				throw std::logic_error("Error");
-			}
 		}
 		else if (str[i] == '[') {
 			if (st == find_value)
@@ -265,9 +255,6 @@ map<string, any> Json::parse_object(const string& str, size_t& pos)
 			{
 				pos = i;
 				return result;
-			}
-			else {
-				throw std::logic_error("Error");
 			}
 		}
 		else if (!isspace(str[i])) {

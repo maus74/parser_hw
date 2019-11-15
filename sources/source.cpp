@@ -2,6 +2,7 @@
 
 #include <header.hpp>
 #include<iostream>
+#include<vector>
 using namespace std;
 int add(int a, int b)
 {
@@ -12,6 +13,7 @@ int add(int a, int b)
 
 int main()
 {
+
     int n;
     cin>>n;
     cout<<n;
