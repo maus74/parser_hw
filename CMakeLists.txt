@@ -18,7 +18,7 @@ HunterGate(
         SHA1 "e14bc153a7f16d6a5eeec845fb0283c8fad8c358"
 )
 # TODO: rename project and delete this comment
-project(template)
+project(lab-01-parser)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
@@ -30,7 +30,7 @@ find_package(Boost CONFIG REQUIRED filesystem regex)
 find_package(Threads REQUIRED)
 
 # TODO: change template word to project name and delete this comment
-add_library(template STATIC
+add_library(lab-01-parser STATIC
   # enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
 )
@@ -40,14 +40,16 @@ add_executable(tests
 )
 
 # TODO: change template word to project name and delete this comment
-target_include_directories(template
+target_include_directories(lab-01-parser
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 target_include_directories(tests 
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 # TODO: change template word to project name and delete this comment
-target_link_libraries(tests GTest::main template)
+#target_link_libraries(tests GTest::main template)
+#add_executable(GoogleTestDemo ${SOURCE_FILES})
+target_link_libraries(lab-01-parser gtest gtest_main)
 
 enable_testing()
 add_test(NAME unit_tests COMMAND tests)

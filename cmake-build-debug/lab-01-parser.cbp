@@ -103,7 +103,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/maus/homeworks/iu10/lab-01-parser/include"/>
-					<Add directory="/home/maus/.hunter/_Base/e14bc15/511a137/2cb8efb/Install/include"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -128,7 +127,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/maus/homeworks/iu10/lab-01-parser/include"/>
-					<Add directory="/home/maus/.hunter/_Base/e14bc15/511a137/2cb8efb/Install/include"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>

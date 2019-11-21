@@ -67,17 +67,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/home/maus/jetbrains/clion-2019.1.3/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -88,6 +77,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/home/maus/jetbrains/clion-2019.1.3/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,17 +122,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named template
+# Target rules for targets named lab-01-parser
 
 # Build rule for target.
-template: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 template
-.PHONY : template
+lab-01-parser: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lab-01-parser
+.PHONY : lab-01-parser
 
 # fast build rule for target.
-template/fast:
-	$(MAKE) -f CMakeFiles/template.dir/build.make CMakeFiles/template.dir/build
-.PHONY : template/fast
+lab-01-parser/fast:
+	$(MAKE) -f CMakeFiles/lab-01-parser.dir/build.make CMakeFiles/lab-01-parser.dir/build
+.PHONY : lab-01-parser/fast
 
 #=============================================================================
 # Target rules for targets named tests
@@ -153,7 +153,7 @@ sources/source.o: sources/source.cpp.o
 
 # target to build an object file
 sources/source.cpp.o:
-	$(MAKE) -f CMakeFiles/template.dir/build.make CMakeFiles/template.dir/sources/source.cpp.o
+	$(MAKE) -f CMakeFiles/lab-01-parser.dir/build.make CMakeFiles/lab-01-parser.dir/sources/source.cpp.o
 .PHONY : sources/source.cpp.o
 
 sources/source.i: sources/source.cpp.i
@@ -162,7 +162,7 @@ sources/source.i: sources/source.cpp.i
 
 # target to preprocess a source file
 sources/source.cpp.i:
-	$(MAKE) -f CMakeFiles/template.dir/build.make CMakeFiles/template.dir/sources/source.cpp.i
+	$(MAKE) -f CMakeFiles/lab-01-parser.dir/build.make CMakeFiles/lab-01-parser.dir/sources/source.cpp.i
 .PHONY : sources/source.cpp.i
 
 sources/source.s: sources/source.cpp.s
@@ -171,7 +171,7 @@ sources/source.s: sources/source.cpp.s
 
 # target to generate assembly for a file
 sources/source.cpp.s:
-	$(MAKE) -f CMakeFiles/template.dir/build.make CMakeFiles/template.dir/sources/source.cpp.s
+	$(MAKE) -f CMakeFiles/lab-01-parser.dir/build.make CMakeFiles/lab-01-parser.dir/sources/source.cpp.s
 .PHONY : sources/source.cpp.s
 
 tests/test.o: tests/test.cpp.o
@@ -208,9 +208,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... edit_cache"
-	@echo "... template"
+	@echo "... test"
+	@echo "... lab-01-parser"
 	@echo "... tests"
 	@echo "... sources/source.o"
 	@echo "... sources/source.i"

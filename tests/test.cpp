@@ -5,6 +5,7 @@
 
 TEST(Json, ExampleJson)
 {
+
     Json object = Json::parse(R"(
         {
             "lastname" : "Ivanov",
@@ -21,9 +22,11 @@ TEST(Json, ExampleJson)
         }
     )");
 
+
     EXPECT_EQ(std::any_cast<std::string>(object["lastname"]), "Ivanov");
     EXPECT_EQ(std::any_cast<bool>(object["islegal"]), false);
     EXPECT_EQ(std::any_cast<double>(object["age"]), 25);
+
 
     Json &marks = *std::any_cast<Json *>(object["marks"]);
     EXPECT_EQ(std::any_cast<double>(marks[0]), 4);
@@ -32,6 +35,7 @@ TEST(Json, ExampleJson)
     Json &address = *std::any_cast<Json *>(object["address"]);
     EXPECT_EQ(std::any_cast<std::string>(address["city"]), "Moscow");
     EXPECT_EQ(std::any_cast<std::string>(address["street"]), "Vozdvijenka");
+
 }
 
 

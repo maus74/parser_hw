@@ -155,6 +155,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/template.dir/DependInfo.cmake"
+  "CMakeFiles/lab-01-parser.dir/DependInfo.cmake"
   "CMakeFiles/tests.dir/DependInfo.cmake"
   )
