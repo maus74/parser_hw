@@ -6,5 +6,5 @@ CXX_FLAGS =  -pedantic -Werror -Wall -Wextra -Wno-unused-command-line-argument -
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/maus/homeworks/iu10/lab-01-parser/include 
+CXX_INCLUDES = -I/home/maus/homeworks/iu10/lab-01-parser/include -isystem /home/maus/.hunter/_Base/e14bc15/511a137/2cb8efb/Install/include 
 

@@ -268,9 +268,6 @@ ProcessorCount_cmd_sysctl:FILEPATH=/sbin/sysctl
 //Value Computed by CMake
 lab-01-parser_BINARY_DIR:STATIC=/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug
 
-//Dependencies for the target
-lab-01-parser_LIB_DEPENDS:STATIC=general;gtest;general;gtest_main;
-
 //Value Computed by CMake
 lab-01-parser_SOURCE_DIR:STATIC=/home/maus/homeworks/iu10/lab-01-parser
 
