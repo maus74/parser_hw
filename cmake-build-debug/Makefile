@@ -147,32 +147,32 @@ tests/fast:
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
 .PHONY : tests/fast
 
-sources/source.o: sources/source.cpp.o
+sources/Json.o: sources/Json.cpp.o
 
-.PHONY : sources/source.o
+.PHONY : sources/Json.o
 
 # target to build an object file
-sources/source.cpp.o:
-	$(MAKE) -f CMakeFiles/lab-01-parser.dir/build.make CMakeFiles/lab-01-parser.dir/sources/source.cpp.o
-.PHONY : sources/source.cpp.o
+sources/Json.cpp.o:
+	$(MAKE) -f CMakeFiles/lab-01-parser.dir/build.make CMakeFiles/lab-01-parser.dir/sources/Json.cpp.o
+.PHONY : sources/Json.cpp.o
 
-sources/source.i: sources/source.cpp.i
+sources/Json.i: sources/Json.cpp.i
 
-.PHONY : sources/source.i
+.PHONY : sources/Json.i
 
 # target to preprocess a source file
-sources/source.cpp.i:
-	$(MAKE) -f CMakeFiles/lab-01-parser.dir/build.make CMakeFiles/lab-01-parser.dir/sources/source.cpp.i
-.PHONY : sources/source.cpp.i
+sources/Json.cpp.i:
+	$(MAKE) -f CMakeFiles/lab-01-parser.dir/build.make CMakeFiles/lab-01-parser.dir/sources/Json.cpp.i
+.PHONY : sources/Json.cpp.i
 
-sources/source.s: sources/source.cpp.s
+sources/Json.s: sources/Json.cpp.s
 
-.PHONY : sources/source.s
+.PHONY : sources/Json.s
 
 # target to generate assembly for a file
-sources/source.cpp.s:
-	$(MAKE) -f CMakeFiles/lab-01-parser.dir/build.make CMakeFiles/lab-01-parser.dir/sources/source.cpp.s
-.PHONY : sources/source.cpp.s
+sources/Json.cpp.s:
+	$(MAKE) -f CMakeFiles/lab-01-parser.dir/build.make CMakeFiles/lab-01-parser.dir/sources/Json.cpp.s
+.PHONY : sources/Json.cpp.s
 
 tests/test.o: tests/test.cpp.o
 
@@ -212,9 +212,9 @@ help:
 	@echo "... test"
 	@echo "... lab-01-parser"
 	@echo "... tests"
-	@echo "... sources/source.o"
-	@echo "... sources/source.i"
-	@echo "... sources/source.s"
+	@echo "... sources/Json.o"
+	@echo "... sources/Json.i"
+	@echo "... sources/Json.s"
 	@echo "... tests/test.o"
 	@echo "... tests/test.i"
 	@echo "... tests/test.s"

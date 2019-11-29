@@ -32,7 +32,7 @@ find_package(Threads REQUIRED)
 # TODO: change template word to project name and delete this comment
 add_library(lab-01-parser STATIC
   # enum your files and delete this comment
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/sources/Json.cpp
 )
 add_executable(tests
   # TODO: enum your files and delete this comment
@@ -52,7 +52,7 @@ target_link_libraries(tests GTest::main lab-01-parser)
 #target_link_libraries(lab-01-parser gtest gtest_main)
 
 enable_testing()
-add_test(NAME unit_tests COMMAND tests)
+add_test(NAME ExampleJson COMMAND tests)
 
 
 

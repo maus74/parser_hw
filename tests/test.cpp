@@ -12,23 +12,21 @@ TEST(Json, ExampleJson)
                        " \"Vozdvijenka\" } })";
     Json object = Json::parse(json);
 
+    std::string s = "\"lastname\"";
 
-
-
-
-
-    EXPECT_EQ(std::any_cast<std::string>(object["lastname"]), "Ivanov");
-    EXPECT_EQ(std::any_cast<bool>(object["islegal"]), false);
     EXPECT_EQ(std::any_cast<double>(object["age"]), 25);
+    EXPECT_EQ(std::any_cast<bool>(object["islegal"]), false);
+    EXPECT_EQ(std::any_cast<std::string>(object[s]), "Ivanov");
 
 
-    Json &marks = *std::any_cast<Json *>(object["marks"]);
+
+    auto marks = any_cast<vector<any>>(object["marks"]);
     EXPECT_EQ(std::any_cast<double>(marks[0]), 4);
     EXPECT_EQ(std::any_cast<double>(marks[1]), 5);
 
-    Json &address = *std::any_cast<Json *>(object["address"]);
-    EXPECT_EQ(std::any_cast<std::string>(address["city"]), "Moscow");
-    EXPECT_EQ(std::any_cast<std::string>(address["street"]), "Vozdvijenka");
+    Json address = std::any_cast<Json>(object["address"]);
+    EXPECT_EQ(std::any_cast<string>(address["city"]), "Moscow");
+    EXPECT_EQ(std::any_cast<string>(address["street"]), "Vozdvijenka");
 
 }
 

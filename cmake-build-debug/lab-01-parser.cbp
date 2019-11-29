@@ -146,7 +146,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/maus/homeworks/iu10/lab-01-parser/sources/source.cpp">
+		<Unit filename="/home/maus/homeworks/iu10/lab-01-parser/sources/Json.cpp">
 			<Option target="lab-01-parser"/>
 		</Unit>
 		<Unit filename="/home/maus/homeworks/iu10/lab-01-parser/tests/test.cpp">

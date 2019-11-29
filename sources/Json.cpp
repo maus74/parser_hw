@@ -34,51 +34,31 @@ any& Json::operator[](const string& key)
 {
     if (is_object())
     {
-        auto& map = any_cast<std::map<string, any>&>(data);
-        return map[key];
+        auto maping = any_cast<std::map<std::string, std::any> >(data);
+        return maping[key];
     }
 
-}
-
-std::any& Json::operator[](int index)
-{
-    if (is_array())
-    {
-        auto& vector = std::any_cast<std::vector<std::any>&>(data);
-        return vector[index];
-    }
     else {
         throw std::logic_error("Error");
     }
+
 }
-/*
-const any& Json::operator[](const string& key) const
+
+
+any& Json::operator[](int index)
 {
-	if (is_object())
-	{
-		auto test = data;
-		auto& mmap = any_cast<map<string, any>&>(test);
-		return mmap[key];
-	}
-	else {
-		throw std::logic_error("Error");
-	}
+    if (is_array())
+   {
+        auto vectors = std::any_cast<std::vector<std::any>>(data);
+        return vectors[index];
+    }
+    else {
+       throw std::logic_error("Error");
+    }
 }
-*/
-/*
-const std::any& Json::operator[](int index) const
-{
-	if (is_array())
-	{
-		auto test = data;
-		auto& vector = std::any_cast<std::vector<std::any>&>(test);
-		return vector[index];
-	}
-	else {
-		throw std::logic_error("Error!!!");
-	}
-}
-*/
+
+
+
 
 
 
@@ -229,7 +209,7 @@ vector<any> Json::parse_arr(const string& str, size_t& pos)
         else if (str[i] == '[') {
             if (st == 3)
             {
-                result.emplace_back(Json(parse_arr(str, i)));
+                result.emplace_back((parse_arr(str, i)));
                 st = 4;
             }
             else {
@@ -285,7 +265,7 @@ vector<any> Json::parse_arr(const string& str, size_t& pos)
 map<string, any> Json::parse_object(const string& str, size_t& pos)
 {
     map<string, any> result;
-    State st = 1;
+    int st = 1;
     string key;
 
     for (size_t i = pos; i < str.size(); ++i)
@@ -327,7 +307,7 @@ map<string, any> Json::parse_object(const string& str, size_t& pos)
         else if (str[i] == '[') {
             if (st == 3)
             {
-                result[key] = Json(parse_arr(str, i));
+                result[key] = (parse_arr(str, i));
                 st = 1;
             }
         }

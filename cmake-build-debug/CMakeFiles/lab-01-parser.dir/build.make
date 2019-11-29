@@ -57,27 +57,27 @@ include CMakeFiles/lab-01-parser.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/lab-01-parser.dir/flags.make
 
-CMakeFiles/lab-01-parser.dir/sources/source.cpp.o: CMakeFiles/lab-01-parser.dir/flags.make
-CMakeFiles/lab-01-parser.dir/sources/source.cpp.o: ../sources/source.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab-01-parser.dir/sources/source.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab-01-parser.dir/sources/source.cpp.o -c /home/maus/homeworks/iu10/lab-01-parser/sources/source.cpp
+CMakeFiles/lab-01-parser.dir/sources/Json.cpp.o: CMakeFiles/lab-01-parser.dir/flags.make
+CMakeFiles/lab-01-parser.dir/sources/Json.cpp.o: ../sources/Json.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab-01-parser.dir/sources/Json.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab-01-parser.dir/sources/Json.cpp.o -c /home/maus/homeworks/iu10/lab-01-parser/sources/Json.cpp
 
-CMakeFiles/lab-01-parser.dir/sources/source.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab-01-parser.dir/sources/source.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maus/homeworks/iu10/lab-01-parser/sources/source.cpp > CMakeFiles/lab-01-parser.dir/sources/source.cpp.i
+CMakeFiles/lab-01-parser.dir/sources/Json.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab-01-parser.dir/sources/Json.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maus/homeworks/iu10/lab-01-parser/sources/Json.cpp > CMakeFiles/lab-01-parser.dir/sources/Json.cpp.i
 
-CMakeFiles/lab-01-parser.dir/sources/source.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab-01-parser.dir/sources/source.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maus/homeworks/iu10/lab-01-parser/sources/source.cpp -o CMakeFiles/lab-01-parser.dir/sources/source.cpp.s
+CMakeFiles/lab-01-parser.dir/sources/Json.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab-01-parser.dir/sources/Json.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maus/homeworks/iu10/lab-01-parser/sources/Json.cpp -o CMakeFiles/lab-01-parser.dir/sources/Json.cpp.s
 
 # Object files for target lab-01-parser
 lab__01__parser_OBJECTS = \
-"CMakeFiles/lab-01-parser.dir/sources/source.cpp.o"
+"CMakeFiles/lab-01-parser.dir/sources/Json.cpp.o"
 
 # External object files for target lab-01-parser
 lab__01__parser_EXTERNAL_OBJECTS =
 
-liblab-01-parserd.a: CMakeFiles/lab-01-parser.dir/sources/source.cpp.o
+liblab-01-parserd.a: CMakeFiles/lab-01-parser.dir/sources/Json.cpp.o
 liblab-01-parserd.a: CMakeFiles/lab-01-parser.dir/build.make
 liblab-01-parserd.a: CMakeFiles/lab-01-parser.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/maus/homeworks/iu10/lab-01-parser/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library liblab-01-parserd.a"

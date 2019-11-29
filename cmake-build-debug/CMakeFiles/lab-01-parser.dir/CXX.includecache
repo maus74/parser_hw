@@ -24,13 +24,7 @@ vector
 exception
 -
 
-/home/maus/homeworks/iu10/lab-01-parser/sources/source.cpp
-header.hpp
--
-iostream
--
-vector
--
+/home/maus/homeworks/iu10/lab-01-parser/sources/Json.cpp
 header.hpp
 /home/maus/homeworks/iu10/lab-01-parser/sources/header.hpp
 

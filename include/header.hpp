@@ -28,7 +28,7 @@ public:
 	bool is_object() const;
 
 
-	any& operator[](const string& key);
+    any&  operator[](const string& key);
 
 	any& operator[](int index);
 
