@@ -1,31 +1,36 @@
-#include"header.hpp"
+//
+// Created by maus on 29.11.19.
+//
 
-// конструкторы 
+#include "header.hpp"
+
+
+// конструкторы
 
 Json::Json(const map<string, any>& map)
 {
-	data = map;
+    data = map;
 }
 
 Json::Json(const vector<any>& vector)
 {
-	data = vector;
+    data = vector;
 }
 
 Json::Json(const string& str)
 {
-	for (size_t i = 0; i < str.size(); i++) {
+    for (size_t i = 0; i < str.size(); i++) {
 
-		if (str[i] == '{') {
-			data = parse_object(str, i);
-		}
-		else {
-			if (str[i] == '[') {
-				data = parse_arr(str, i);
-			}
-		}
-		
-	}
+        if (str[i] == '{') {
+            data = parse_object(str, i);
+        }
+        else {
+            if (str[i] == '[') {
+                data = parse_arr(str, i);
+            }
+        }
+
+    }
 }
 
 
@@ -34,30 +39,26 @@ any& Json::operator[](const string& key)
 {
     if (is_object())
     {
-        auto maping = any_cast<std::map<std::string, std::any> >(data);
-        return maping[key];
+        auto& map = any_cast<std::map<string, any>&>(data);
+        return map[key];
     }
-
     else {
         throw std::logic_error("Error");
     }
 
 }
 
-
-any& Json::operator[](int index)
+std::any& Json::operator[](int index)
 {
     if (is_array())
-   {
-        auto vectors = std::any_cast<std::vector<std::any>>(data);
-        return vectors[index];
+    {
+        auto& vector = std::any_cast<std::vector<std::any>&>(data);
+        return vector[index];
     }
     else {
-       throw std::logic_error("Error");
+        throw std::logic_error("Error");
     }
 }
-
-
 
 
 
