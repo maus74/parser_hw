@@ -183,7 +183,12 @@ vector<any> Json::parse_arr(const string& str, size_t& pos)
     vector<any> result;
     ++pos;
     int st = 3;
-
+    /*
+        1 - find key or end,
+        2 - find colon,
+        3 - find value,
+        4 - find comma or end
+     */
     for (size_t i = pos; i < str.size(); ++i)
     {
         if (str[i] == '"')
